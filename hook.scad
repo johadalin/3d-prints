@@ -1,12 +1,12 @@
 $fn=60;
 // Measurements assumed as mm
 loop_height=25; // Internal measurement: bottom of 'leg' to top of arch
-loop_width=31.1; // Internal measurement: distance between legs desk is 31, add .5 for minkowski
-pla_width=3; // thickness legs are printed
-hook_depth=21; // Internal measurement: gap between arch and hook lip
+loop_width=31; // Internal measurement: distance between legs desk is 31
+pla_width=2.8; // thickness legs are printed
+hook_depth=5; // Internal measurement: gap between arch and hook lip
 hook_height=2.5; // Internal measurement: height of hook lip
 //rounding_factor=0.1; // Size of circle relative to pla_width used to minkowski smooth off 2d shape sharp edges
-print_height=8; // height to extrude hook shape
+print_height=7; // height to extrude hook shape
 
 linear_extrude(height=print_height){
     roundedhook(loop_height, loop_width, pla_width, hook_depth, hook_height);
@@ -28,7 +28,7 @@ module loop(height, width, depth){
         rounded_square(depth, height+depth);
         translate([0,height])rounded_square((2*depth + width), depth);
         translate([width+depth,0])rounded_square(depth, height+depth);
-        translate([pla_width/4,height-16.5])rotate([0,0,90])semicircle(4.5); // magic number 14 is 12mm top to gap, + circle rad
+        translate([pla_width/4,height-16])rotate([0,0,90])semicircle(4.5); // magic number 16.5 is 12mm top to gap, + circle rad
         translate([width+depth+(3/4*pla_width),height-16.5])rotate([0,0,270])semicircle(4.5);
         }
         // Add small circles to latch into divider notches
@@ -65,6 +65,3 @@ difference(){
     translate([-radius,0])square(2*radius);
     }
 }
-
-
-
