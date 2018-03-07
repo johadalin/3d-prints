@@ -4,7 +4,7 @@ $fn=60;
 // Internal measurement: bottom of 'leg' to top of arch
 loop_height=25;
 // Internal measurement: distance between legs desk is 31
-loop_width=31; 
+loop_width=30.5; 
 
 ////
 //Customisable options:
@@ -13,7 +13,7 @@ loop_width=31;
 hook_type="rounded";//[rounded,square]
 
 // Internal measurement: gap between arch and hook lip. 5 for small hook, 21 for headset
-hook_depth=5;//[1:40]
+hook_depth=21;//[1:40]
 
 // Internal measurement: height of hook lip above semi circle. 2.5 recommended
 hook_height=2.5;//[0:25]
@@ -55,7 +55,7 @@ module hook(loop_height, loop_width, pla_width, hook_depth, hook_height){
     }
 }
 
-// The "U" shaped pard of the hook, that slots over the divider, with tabs to hold it in place
+// The "U" shaped part of the hook, that slots over the divider, with tabs to hold it in place
 module loop(height, width, depth){
     union(){
       // Main U shape
@@ -64,8 +64,8 @@ module loop(height, width, depth){
         translate([width+depth,0])rounded_square(depth, height+depth);
 
       // Tabs to hold in place
-        translate([pla_width/4,height-16])rotate([0,0,90])semicircle(4.5); // magic number 16 is: 12mm top to gap, + circle rad - tiny bit to get it closer fitting.... Magic
-        translate([width+depth+(3/4*pla_width),height-16.5])rotate([0,0,270])semicircle(4.5);
+        translate([pla_width/2,height-16.5])rotate([0,0,90])semicircle(4.5); // magic number 16 is: 12mm top to gap, + circle rad - tiny bit to get it closer fitting.... Magic
+        translate([width+depth+(1/2*pla_width),height-16.5])rotate([0,0,270])semicircle(4.5);
     }
 }
     
