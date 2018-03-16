@@ -1,6 +1,6 @@
 xa = 30;
 ya = 33.3;
-za = 0.3;
+za = 6.6;
 
 cube(size=[xa,ya,za], center=true);
 
@@ -10,7 +10,7 @@ translate(v=[0,4.75,-2]){
     cube(size=[10,0.5,4], center=true);
 }*/
 
-depth = 2;
+depth = 10;
 guard = 2;
 
 zoff = depth/2;
